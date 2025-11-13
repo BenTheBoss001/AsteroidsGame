@@ -1,17 +1,23 @@
 Spaceship ship = new Spaceship();
+Star [] stars = new Star[200];
 boolean pressingW = false;
 boolean pressingS = false;
 boolean pressingA = false;
 boolean pressingD = false;
 void setup(){
   size(600,600);
+  for (int i = 0; i < stars.length; i++){
+    stars[i] = new Star();
+  }
 }
 
 
 void draw() {
-  background(0);
+  fill(24, 16, 74,150);
+  rect(0,0,600,600);
   ship.show();
-  ship.move();
+  ship.limitSpeed();
+  //ship.move();
   if (pressingW == true){
     ship.accelerate(0.25);
   }
@@ -23,6 +29,10 @@ void draw() {
   }
   if (pressingD == true){
     ship.turn(5);
+  }
+  for (int i = 0; i < stars.length; i++){
+    stars[i].show();
+    stars[i].move();
   }
 }
 
@@ -38,6 +48,12 @@ public void keyPressed(){
   }
   if (key == 'd'){
     pressingD = true;
+  }
+  if (key == 'h'){
+    ship.hyperSpace();
+    for (int i = 0; i < stars.length; i++){
+    stars[i].hyperSpace();
+  }
   }
 }
 
