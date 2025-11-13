@@ -10,4 +10,28 @@ class Spaceship extends Floater{
     myYspeed = 0;
     myPointDirection = 0;
   }
+  
+  public void hyperSpace(){
+    myXspeed = 0;
+    myYspeed = 0;
+    //myCenterX = Math.random()*600;
+    //myCenterY = Math.random()*600;
+    myPointDirection = Math.random()*360;
+  }
+  public void limitSpeed(){
+    if (myXspeed > 20){
+      myXspeed = 20;
+    }
+    if (myXspeed < -15){
+      myXspeed = -15;
+    }
+    if (myYspeed > 20){
+      myYspeed = 20;
+    }
+    if (myYspeed < -15){
+      myYspeed = -15;
+    }
+  }
+  public double getXSpeed(){return myXspeed;}
+  public double getYSpeed(){return myYspeed;}
 }
