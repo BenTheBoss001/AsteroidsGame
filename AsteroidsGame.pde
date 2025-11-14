@@ -1,9 +1,9 @@
 Spaceship ship = new Spaceship();
 Star [] stars = new Star[200];
-boolean pressingW = false;
-boolean pressingS = false;
-boolean pressingA = false;
-boolean pressingD = false;
+public boolean pressingW = false;
+public boolean pressingS = false;
+public boolean pressingA = false;
+public boolean pressingD = false;
 void setup(){
   size(600,600);
   for (int i = 0; i < stars.length; i++){
