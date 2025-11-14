@@ -18,23 +18,27 @@ class Star{
     if(myX >width)
     {     
       myX = 0;    
+      myY = (int)(Math.random()*height);
     }    
     else if (myX<0)
     {     
-      myX = width;    
+      myX = width;
+      myY = (int)(Math.random()*height);
     }    
     if(myY >height)
     {    
-      myY = 0;    
+      myY = 0;
+      myX = (int)(Math.random()*width);
     } 
     
     else if (myY < 0)
     {     
-      myY = height;    
+      myY = height;
+      myX = (int)(Math.random()*width);
     }   
   } 
   public void hyperSpace(){
-    myX = (int)(Math.random()*600);
-    myY = (int)(Math.random()*600);
+    myX = (int)(Math.random()*width);
+    myY = (int)(Math.random()*height);
   }
 }
