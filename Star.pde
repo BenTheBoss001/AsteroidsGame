@@ -1,12 +1,12 @@
 class Star{
-  private int myX, myY;
+  private double myX, myY;
   public Star(){
-    myX = (int)(Math.random()*600);
-    myY = (int)(Math.random()*600);
+    myX = Math.random()*600;
+    myY = Math.random()*600;
   }
   public void show(){
     fill(255);
-    ellipse(myX, myY, 2,2);
+    ellipse((float)myX, (float)myY, 2,2);
   }
   public void move ()   //move the floater in the current direction of travel
   {      
@@ -15,7 +15,7 @@ class Star{
     myY -= ship.getYSpeed();     
 
     //wrap around screen    
-    if(myX >width)
+    if(myX >= width)
     {     
       myX = 0;    
       myY = (int)(Math.random()*height);
@@ -25,7 +25,7 @@ class Star{
       myX = width;
       myY = (int)(Math.random()*height);
     }    
-    if(myY >height)
+    if(myY >= height)
     {    
       myY = 0;
       myX = (int)(Math.random()*width);
