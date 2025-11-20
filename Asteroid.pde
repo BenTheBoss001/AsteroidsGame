@@ -64,7 +64,7 @@ class Asteroid extends Floater{
   public double getYPos(){return myCenterY;}
   
   public void collide(){
-    if (Math.random() > 0.7){
+    if (Math.random() > 0.2){
       iFrames = 60;
       myPointDirection = -1*ship.getDir();
       this.accelerate(Math.random()*3+1);
