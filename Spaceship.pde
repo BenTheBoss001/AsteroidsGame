@@ -19,19 +19,29 @@ class Spaceship extends Floater{
     myPointDirection = Math.random()*360;
   }
   public void limitSpeed(){
-    if (myXspeed > 20){
-      myXspeed = 20;
+    if (myXspeed > 10){
+      myXspeed = 10;
     }
-    if (myXspeed < -15){
-      myXspeed = -15;
+    if (myXspeed < -10){
+      myXspeed = -10;
     }
-    if (myYspeed > 20){
-      myYspeed = 20;
+    if (myYspeed > 10){
+      myYspeed = 10;
     }
-    if (myYspeed < -15){
-      myYspeed = -15;
+    if (myYspeed < -10){
+      myYspeed = -10;
     }
   }
   public double getXSpeed(){return myXspeed;}
   public double getYSpeed(){return myYspeed;}
+  
+  public double getXPos(){return myCenterX;}
+  public double getYPos(){return myCenterY;}
+  
+  public double getDir(){return myPointDirection;}
+  
+  public void collide(){
+    myXspeed = -1*(myXspeed/2);
+    myYspeed = -1*(myYspeed/2);
+  }
 }
