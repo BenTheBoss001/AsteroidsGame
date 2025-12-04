@@ -2,7 +2,6 @@ class Asteroid extends Floater{
   private double rotSpeed;
   private int size;
   public boolean dead;
-  public int iFrames;
   public Asteroid(){
     corners = 6;
     size = (int)(Math.random()*3)+7;
@@ -28,14 +27,25 @@ class Asteroid extends Floater{
     myPointDirection = 0;
     rotSpeed = Math.random()*4-2;
     dead = false;
-    iFrames = 0;
   }
   public void move(){
     turn(rotSpeed);
     super.move();
     myCenterX -= ship.getXSpeed();    
     myCenterY -= ship.getYSpeed();     
-
+    
+    if (myXspeed > 10){
+      myXspeed = 10;
+    }
+    if (myXspeed < -10){
+      myXspeed = -10;
+    }
+    if (myYspeed > 10){
+      myYspeed = 10;
+    }
+    if (myYspeed < -10){
+      myYspeed = -10;
+    }
     //wrap around screen    
     if(myCenterX >width+25)
     {     
@@ -63,11 +73,15 @@ class Asteroid extends Floater{
   public double getXPos(){return myCenterX;}
   public double getYPos(){return myCenterY;}
   
+  public void hyperSpace(){
+    myCenterX = Math.random()*600;
+    myCenterY = Math.random()*600;
+  }
+  
   public void collide(){
     if (Math.random() > 0.2){
-      iFrames = 60;
-      myPointDirection = -1*ship.getDir();
-      this.accelerate(Math.random()*3+1);
+      //myPointDirection = -1*ship.getDir();
+      this.accelerate(Math.random()*3+1/*(((Math.abs(ship.getXSpeed())+Math.abs(ship.getYSpeed())/2)+(Math.abs(myXspeed)+Math.abs(myYspeed)/2)))/2*/);
     } else {
       dead = true;
     }
